@@ -168,33 +168,6 @@ Shows:
 - Shows source and category
 - Preserves metadata
 
----
-
-## 🚀 Next Steps
-
-### 1. Test It Out
-- Load the app
-- Browse articles
-- Try the search
-- Click some ticker badges
-
-### 2. Customize
-- Adjust colors to your preference
-- Add your favorite RSS feeds
-- Change tracking period
-
-### 3. Deploy (Optional)
-- Heroku: `heroku create && git push heroku main`
-- Railway: Connect GitHub repo
-- Render: Connect and auto-deploy
-
-### 4. Enhance
-- Add Redis caching
-- Create new category panels
-- Build API endpoints
-- Add user favorites
-
----
 
 ## 📚 More Information
 
