@@ -1,0 +1,146 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="stats-bar">
+  <div class="stat-item">
+    <span class="stat-label">Overall Market</span>
+    <span class="stat-value">{{ overall_count }}</span>
+  </div>
+  <div class="stat-item">
+    <span class="stat-label">Tech News</span>
+    <span class="stat-value">{{ tech_count }}</span>
+  </div>
+  <div class="stat-item">
+    <span class="stat-label">Tracking Period</span>
+    <span class="stat-value">7 Days</span>
+  </div>
+</div>
+
+<section class="grid">
+  <!-- Overall Market Panel -->
+  <div class="panel panel-lg">
+    <div class="panel-header">
+      <h2>
+        <span class="icon">📊</span>
+        Overall Market
+      </h2>
+      <span class="article-count">{{ overall_count }} articles</span>
+    </div>
+    
+    <ul class="article-list">
+      {% for article in overall_articles %}
+      <li class="article-row">
+        <div class="article-content">
+          <a class="title" href="{{ article.link }}" target="_blank" rel="noopener">
+            {{ article.title }}
+          </a>
+          <div class="article-meta">
+            <span class="source">{{ article.source }}</span>
+            {% if article.published_str %}
+            <span class="separator">•</span>
+            <span class="time">{{ article.published_str }}</span>
+            {% endif %}
+          </div>
+        </div>
+        
+        <div class="meta-right">
+          {% if article.ticker %}
+          <a class="ticker-badge" href="{{ article.yahoo_url }}" target="_blank" rel="noopener">
+            {{ article.ticker }}
+          </a>
+          {% endif %}
+        </div>
+      </li>
+      {% else %}
+      <li class="placeholder">
+        <p>No recent articles found.</p>
+        <p class="placeholder-hint">Articles from the past 7 days will appear here.</p>
+      </li>
+      {% endfor %}
+    </ul>
+  </div>
+
+  <!-- Tech Panel -->
+  <div class="panel panel-lg">
+    <div class="panel-header">
+      <h2>
+        <span class="icon">💻</span>
+        Tech
+      </h2>
+      <span class="article-count">{{ tech_count }} articles</span>
+    </div>
+    
+    <ul class="article-list">
+      {% for article in tech_articles %}
+      <li class="article-row">
+        <div class="article-content">
+          <a class="title" href="{{ article.link }}" target="_blank" rel="noopener">
+            {{ article.title }}
+          </a>
+          <div class="article-meta">
+            <span class="source">{{ article.source }}</span>
+            {% if article.published_str %}
+            <span class="separator">•</span>
+            <span class="time">{{ article.published_str }}</span>
+            {% endif %}
+          </div>
+        </div>
+        
+        <div class="meta-right">
+          {% if article.ticker %}
+          <a class="ticker-badge" href="{{ article.yahoo_url }}" target="_blank" rel="noopener">
+            {{ article.ticker }}
+          </a>
+          {% endif %}
+        </div>
+      </li>
+      {% else %}
+      <li class="placeholder">
+        <p>No recent articles found.</p>
+        <p class="placeholder-hint">Tech articles from the past 7 days will appear here.</p>
+      </li>
+      {% endfor %}
+    </ul>
+  </div>
+
+  <!-- Option Hunter Panel (Coming Soon) -->
+  <div class="panel panel-lg coming-soon-panel">
+    <div class="panel-header">
+      <h2>
+        <span class="icon">🎯</span>
+        Option Hunter
+      </h2>
+      <span class="badge-coming-soon">Coming Soon</span>
+    </div>
+    
+    <div class="coming-soon-content">
+      <div class="coming-soon-icon">🚀</div>
+      <h3>Advanced Options Analytics</h3>
+      <p>Track unusual options activity, volume spikes, and identify potential opportunities.</p>
+      <ul class="feature-list">
+        <li>Unusual options activity alerts</li>
+        <li>Volume and open interest analysis</li>
+        <li>Put/call ratio tracking</li>
+        <li>Real-time options flow</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<section class="info-section">
+  <div class="info-card">
+    <h3>ℹ️ About This Site</h3>
+    <ul>
+      <li><strong>News Sources:</strong> Yahoo Finance, Wall Street Journal, CNBC, TechCrunch, The Verge, Ars Technica, and more</li>
+      <li><strong>Update Frequency:</strong> Articles are fetched in real-time when you load the page</li>
+      <li><strong>Tracking Period:</strong> Displaying news from the past 7 days</li>
+      <li><strong>Stock Tickers:</strong> Automatically extracted from article titles and linked to Yahoo Finance</li>
+    </ul>
+  </div>
+  
+  <div class="disclaimer-card">
+    <h3>⚠️ Disclaimer</h3>
+    <p>This site aggregates publicly available financial news for informational purposes only. This is not financial advice. Always do your own research and consult with a qualified financial advisor before making investment decisions.</p>
+  </div>
+</section>
+{% endblock %}

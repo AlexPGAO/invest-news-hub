@@ -1,0 +1,67 @@
+{% extends 'base.html' %}
+
+{% block title %}Search Results - Invest the Press{% endblock %}
+
+{% block content %}
+<div class="search-header">
+  <h2>🔍 Search Results</h2>
+  {% if query %}
+  <p class="search-query">Showing results for: <strong>"{{ query }}"</strong></p>
+  <p class="search-count">{{ articles|length }} article(s) found</p>
+  {% else %}
+  <p class="search-query">Enter a search term to find articles</p>
+  {% endif %}
+</div>
+
+<section class="search-results">
+  <div class="panel">
+    <ul class="article-list">
+      {% for article in articles %}
+      <li class="article-row">
+        <div class="article-content">
+          <a class="title" href="{{ article.link }}" target="_blank" rel="noopener">
+            {{ article.title }}
+          </a>
+          <div class="article-meta">
+            <span class="source">{{ article.source }}</span>
+            <span class="separator">•</span>
+            <span class="category-badge category-{{ article.group }}">
+              {{ 'Market' if article.group == 'overall' else 'Tech' }}
+            </span>
+            {% if article.published_str %}
+            <span class="separator">•</span>
+            <span class="time">{{ article.published_str }}</span>
+            {% endif %}
+          </div>
+        </div>
+        
+        <div class="meta-right">
+          {% if article.ticker %}
+          <a class="ticker-badge" href="{{ article.yahoo_url }}" target="_blank" rel="noopener">
+            {{ article.ticker }}
+          </a>
+          {% endif %}
+        </div>
+      </li>
+      {% else %}
+      <li class="placeholder">
+        <div class="no-results">
+          <span class="no-results-icon">🔍</span>
+          <h3>No Results Found</h3>
+          {% if query %}
+          <p>No articles match your search for "{{ query }}"</p>
+          <p class="placeholder-hint">Try different keywords or check back later for new articles</p>
+          {% else %}
+          <p>Enter a search term to find articles</p>
+          {% endif %}
+        </div>
+      </li>
+      {% endfor %}
+    </ul>
+  </div>
+</section>
+
+<div class="back-link">
+  <a href="{{ url_for('index') }}" class="btn-back">← Back to Home</a>
+</div>
+{% endblock %}
