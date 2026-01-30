@@ -28,7 +28,7 @@ A modern, streamlined Flask web application that aggregates real-time financial 
 
 1. **Clone the repository**:
    ```bash
-   git clone https://github.com/YOUR-USERNAME/invest-the-press.git
+   git clone https://github.com/AlexPGAO/invest-the-press.git
    cd invest-the-press
    ```
 
