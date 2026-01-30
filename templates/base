@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>{% block title %}Invest the Press{% endblock %}</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+  <header class="site-header">
+    <div class="header-content">
+      <h1>ðŸ“ˆ Invest the Press</h1>
+      <p class="tagline">Real-time market & tech news aggregator</p>
+      
+      <form class="search-form" action="{{ url_for('search') }}" method="get">
+        <input 
+          type="text" 
+          name="q" 
+          placeholder="Search articles..." 
+          value="{{ query if query else '' }}"
+          autocomplete="off"
+        />
+        <button type="submit">Search</button>
+      </form>
+    </div>
+  </header>
+
+  <main class="container">
+    {% block content %}{% endblock %}
+  </main>
+
+  <footer class="site-footer">
+    <p>Â© 2025 Invest the Press | Data aggregated from public RSS feeds | Not financial advice</p>
+  </footer>
+</body>
+</html>
