@@ -1,4 +1,4 @@
-# 📈 Invest the Press
+# 📈 Invest News Hub
 
 [![Python](https://img.shields.io/badge/python-3.8+-blue.svg)](https://www.python.org/downloads/)
 [![Flask](https://img.shields.io/badge/flask-3.0.0-green.svg)](https://flask.palletsprojects.com/)
