@@ -14,7 +14,6 @@ A modern, streamlined Flask web application that aggregates real-time financial 
 
 A real-time financial news aggregator pulling from 50+ sources.
 Please note this live demo is very slow
-```
 
 ## ✨ Features
 
