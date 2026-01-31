@@ -9,6 +9,12 @@ A modern, streamlined Flask web application that aggregates real-time financial 
 ## Preview
 ![DEMO](https://media4.giphy.com/media/v1.Y2lkPTc5MGI3NjExc2w4YXQxcG5mZXZ0cnE3NHY5cjNxeWhkc2FoYndxYmtqaDU3cHpqayZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/irOEqZS5j9Z58TfsKF/giphy.gif)
 
+## 🌐 Live Demo
+**[View Live Application →](https://invest-news-hub.onrender.com)**
+
+A real-time financial news aggregator pulling from 50+ sources.
+```
+
 ## ✨ Features
 
 - **📰 50+ News Sources**: Aggregates from Yahoo Finance, WSJ, CNBC, Bloomberg, Reuters, TechCrunch, CoinDesk, and many more
