@@ -210,11 +210,10 @@ git push heroku main
 ## 🔮 Coming Soon
 
 - Option Hunter analytics panel
-- Redis caching for faster loads
-- User favorites and watchlists
-- Email alerts for keywords
+- SQL Integration for faster display
+- Further ease of use graphically (Stock Tickers, Integrated Colors)
+- Email alerts for keywords or Ticker
 - Dark mode toggle
-- Portfolio integration
 
 ## 📄 License
 
