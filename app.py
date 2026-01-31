@@ -1,6 +1,5 @@
 import feedparser
 from flask import Flask, render_template, request
-import pandas as pd
 import re
 from datetime import datetime, timedelta
 import pytz
@@ -155,12 +154,8 @@ def fetch_grouped_articles():
             return rows
         
         # Sort by date (newest first)
-        df = pd.DataFrame(rows)
-        df['__sort_dt'] = df['published_dt_est'].apply(lambda d: d.timestamp() if pd.notnull(d) else 0.0)
-        df = df.sort_values(by='__sort_dt', ascending=False, kind='mergesort')
-        df = df.drop(columns='__sort_dt')
-        
-        return df.to_dict(orient='records')
+        rows.sort(key=lambda x: x['published_dt_est'].timestamp() if x['published_dt_est'] else 0, reverse=True)
+        return rows
 
     overall = fetch_from(OVERALL_FEEDS, 'overall')
     tech = fetch_from(TECH_FEEDS, 'tech')

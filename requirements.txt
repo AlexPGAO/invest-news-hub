@@ -1,6 +1,6 @@
 Flask==3.0.0
 feedparser==6.0.11
-pandas==2.1.4
 pytz==2024.1
 requests==2.31.0
+gunicorn==21.2.0
 Werkzeug==3.0.1
